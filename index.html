@@ -8,17 +8,14 @@
     <style>
         body {
             font-family: 'Playfair Display', serif;
-            background-image: url'https://imgur.com/a/b30uMW6'; 
-            background-size: cover;
-            background-position: center;
-            color: #fff;
+            background-color: black; /* Fundo preto */
+            color: yellow; /* Texto amarelo */
             text-align: center;
             padding: 50px;
-            position: relative;
-            overflow: hidden; 
+            overflow: hidden; /* Para esconder partes da imagem que possam sair da tela */
         }
         h1 {
-            color: #ff69b4;
+            color: #ff69b4; /* Pode ajustar a cor do título */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         p {
@@ -26,23 +23,59 @@
             line-height: 1.5;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
-        
-        .fire {
+        /* Animação de corações */
+        .heart {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url'https://imgur.com/a/b30uMW6'; 
-            opacity: 0.5; 
-            z-index: -1; 
+            width: 50px;
+            height: 50px;
+            background-image: url('HEART_IMAGE_URL'); /* Substitua com a URL da imagem do coração */
             background-size: cover;
+            animation: fly 10s infinite;
+        }
+        /* Animação de chamas */
+        .flame {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('FLAME_IMAGE_URL'); /* Substitua com a URL da imagem da chama */
+            background-size: cover;
+            animation: rise 5s infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                top: 100%;
+                left: calc(100% * Math.random());
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.8;
+            }
+            100% {
+                top: 0%;
+                opacity: 0;
+            }
+        }
+        @keyframes rise {
+            0% {
+                bottom: -10%;
+                left: calc(100% * Math.random());
+                transform: scale(1);
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="fire"></div>
     <h1>Poema para Kayte</h1>
+    <audio controls autoplay loop>
+        <source src="MUSICA_URL" type="audio/mpeg"> <!-- Substitua MUSICA_URL pelo link da música -->
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
     <p>
         Kayte, meu amor, na tempestade nos perdemos,<br>
         Um dia escuro, onde a tristeza nos cercou.<br>
@@ -74,5 +107,15 @@
         Kayte, meu tudo, a luz da minha vida,<br>
         Com você ao meu lado, a alma é preenchida.
     </p>
+
+    <!-- Elementos de coração e chama -->
+    <div class="heart" style="animation-delay: 0s;"></div>
+    <div class="heart" style="animation-delay: 1s;"></div>
+    <div class="heart" style="animation-delay: 2s;"></div>
+    <div class="heart" style="animation-delay: 3s;"></div>
+    <div class="flame" style="animation-delay: 0s;"></div>
+    <div class="flame" style="animation-delay: 1.5s;"></div>
+    <div class="flame" style="animation-delay: 3s;"></div>
+    <div class="flame" style="animation-delay: 4.5s;"></div>
 </body>
 </html>
